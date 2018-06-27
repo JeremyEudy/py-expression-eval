@@ -284,7 +284,7 @@ class Parser:
         return math.sqrt(a * a + b * b)
     
     def roll(self, a, b):
-         rolls = []
+         rolls = ""
          roll = 0
          final = 0
          if a<1:
@@ -292,8 +292,10 @@ class Parser:
          elif b<2:
             return -2
          for c in range(1, a):
-             roll = random.randint(1, b)
-             rolls.append(roll)
+             roll = str(random.randint(1, b))
+             if c<a:
+                 roll+='+'
+             rolls+=roll       
          return rolls
 
     def ifFunction(self,a,b,c):
