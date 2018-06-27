@@ -282,6 +282,19 @@ class Parser:
 
     def pyt(self, a, b):
         return math.sqrt(a * a + b * b)
+    
+    def roll(self, a, b):
+         rolls = []
+         roll = 0
+         final = 0
+         if a<1:
+            return -1
+         elif b<2:
+            return -2
+         for c in range(1, a):
+             roll = random.randint(1, b)
+             rolls.append(roll)
+         return rolls
 
     def ifFunction(self,a,b,c):
         return b if a else c
@@ -337,7 +350,8 @@ class Parser:
             ">=": self.greaterThanEqual,
             "<=": self.lessThanEqual,
             "and": self.andOperator,
-            "or": self.orOperator
+            "or": self.orOperator,
+            "D": self.roll
         }
 
         self.functions = {
